@@ -1,0 +1,23 @@
+palette: {
+    type: 'dark',
+    primary: {
+      main: '#90caf9',
+    },
+    secondary: {
+      main: '#f9b934',
+    },
+    background: {
+      default: '#1a202c',
+      paper: '#2d3748',
+    },
+},
+
+palette: {
+    type: 'light',
+    primary: {
+      main: '#3f51b5',
+    },
+    secondary: {
+      main: '#f9b934',
+    },
+},

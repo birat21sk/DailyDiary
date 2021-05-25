@@ -1,0 +1,72 @@
+<React.Fragment>
+			<div style={{ width: "100%", height: "100vh" }}>
+				<Paper
+					style={{
+						backgroundImage: "url(/static/img/bg.jpg)",
+						width: "100%",
+						height: "auto",
+						backgroundRepeat: "no-repeat",
+					}}
+				></Paper>
+			</div>
+			<Container>
+				<Grid container>
+					<Grid item xs={12} className={classes.nav}>
+						<NavLink to="/login" className={classes.navlink}>
+							Log in
+						</NavLink>
+						<NavLink to="/signup" className={classes.navlink}>
+							Sign up
+						</NavLink>
+					</Grid>
+				</Grid>
+				<br />
+				{/* <Grid container spacing={4}>
+				<Grid item sm={12} md={5} className={classes.banner}>
+					<Typography variant={"h2"} className={"text-dark"}>
+						<Box fontFamily="Lato" fontWeight="900">
+							Write your day
+							<Typewriter
+								options={{
+									strings: ["Anywhere", "Anytime"],
+									autoStart: true,
+									loop: true,
+									wrapperClassName: "text-secondary",
+								}}
+							/>
+							In your Palm
+						</Box>
+					</Typography>
+					<br />
+					<Typography>
+						<Box fontFamily="Lato" className="text-gray">
+							You're private, 100% customizable online journal.
+						</Box>
+					</Typography>
+					<br />
+					<Button variant="contained" color="primary">
+						Start Your Free Journal Now!
+					</Button>
+				</Grid>
+				<Hidden smDown>
+					<Grid item md={7}>
+						<CardMedia
+							className={classes.media}
+							image="static/img/lg_bg.png"
+							component="img"
+						/>
+					</Grid>
+				</Hidden>
+			</Grid> */}
+			</Container>
+		</React.Fragment>
+
+
+
+padding-top: 100px;
+    overflow: hidden;
+    background: url(https://d3c2plo0qyv3hc.cloudfront.net/images/landing/background-desk.jpg) #f2f2f2;
+    background-size: 100% auto;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    padding-bottom: 40%;

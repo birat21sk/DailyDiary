@@ -1,0 +1,353 @@
+@media (min-width: 992px) {
+	.navbar-expand-lg {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-flow: row nowrap;
+		flex-flow: row nowrap;
+		-webkit-box-pack: start;
+		-ms-flex-pack: start;
+		justify-content: flex-start;
+	}
+	.navbar-expand-lg .navbar-collapse {
+		display: -webkit-box !important;
+		display: -ms-flexbox !important;
+		display: flex !important;
+		-ms-flex-preferred-size: auto;
+		top: 0 !important;
+		color: #555 !important;
+		height: 50px !important;
+		flex-basis: auto;
+		opacity: 1 !important;
+		background: transparent !important;
+		border-radius: 0 !important;
+		padding: 0 !important;
+	}
+	.navbar-expand-lg .navbar-nav {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: row;
+		flex-direction: row;
+	}
+	.navbar-expand-lg .navbar-toggler {
+		display: none;
+	}
+	.navbar-brand {
+		font-size: 1.5rem !important;
+	}
+	.nav-link {
+		color: #555 !important;
+	}
+
+	.nav-item {
+		padding-left: 20px;
+	}
+	.navbar-nav {
+		align-items: center !important;
+	}
+}
+.navbar-collapse {
+	position: absolute;
+	top: 50px;
+	right: 0;
+	/* opacity: 0; */
+	background: rgba(51, 51, 51, 0.9);
+	border-radius: 10px 0 10px 10px;
+	flex-basis: 100%;
+	transition: 700ms ease;
+}
+.navbar-nav {
+	display: flex;
+	align-items: center;
+	list-style: none;
+	flex-direction: column;
+	padding: 0;
+	margin: 0;
+}
+.nav-link {
+	text-decoration: none;
+	color: #fff;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.nav-item {
+	padding: 10px 20px;
+}
+
+.navbar-brand {
+	display: flex;
+	align-items: center;
+	padding: 0 5px;
+	font-size: 1.2rem;
+	color: #1a202c;
+	text-decoration: none;
+}
+.justify-content-between {
+	justify-content: space-between;
+}
+.navbar-container {
+	height: 100%;
+	width: 70%;
+	position: relative;
+}
+.collapse {
+	display: none;
+}
+
+.collapse.show {
+	display: block;
+}
+.nav-toggle-icon {
+	font-size: 1.5rem !important;
+}
+.landing__navbar.active {
+	-webkit-transform: translate(0, 0);
+	transform: translate(0, 0);
+	opacity: 1;
+}
+.landing__navbar {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2000;
+	height: 50px;
+	background: #fff;
+	border-bottom: 1px solid #e6e6e6;
+	-webkit-transition: opacity 0.5s, -webkit-transform 0.25s;
+	transition: opacity 0.5s, -webkit-transform 0.25s;
+	transition: transform 0.7s, opacity 0.45s;
+	transition: transform 0.7s, opacity 0.45s, -webkit-transform 0.25s;
+	opacity: 0;
+	-webkit-transform: translate(0, -100px);
+	transform: translate(0, -100px);
+}
+
+.landing__login {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+.lato {
+	font-family: lato !important;
+	font-weight: normal;
+}
+.lato-700 {
+	font-family: lato !important;
+	font-weight: 700 !important ;
+}
+.lato-900 {
+	font-family: lato !important;
+	font-weight: 900 !important;
+}
+.lato-500 {
+	font-family: lato !important;
+	font-weight: 500 !important;
+}
+.lato-300 {
+	font-family: lato !important;
+	font-weight: 300 !important;
+}
+
+.text-secondary {
+	color: #f9b934;
+}
+
+.text-dark {
+	color: #2d3748;
+}
+
+.text-gray {
+	color: #718096;
+}
+
+.pt {
+	padding-top: 10px;
+}
+.pl {
+	padding-left: 10px;
+}
+.pr {
+	padding-right: 10px;
+}
+.pb {
+	padding-bottom: 10px;
+}
+.p {
+	padding: 10px;
+}
+.mt {
+	margin-top: 10px;
+}
+.ml {
+	margin-left: 10px;
+}
+.mr {
+	margin-right: 10px;
+}
+.mb {
+	margin-bottom: 10px;
+}
+.m {
+	margin: 10px;
+}
+
+.landing__banner {
+	padding-top: 50px;
+	overflow: hidden;
+	background: url("./image/bg.jpg") #efefef;
+	/* background-color: #c9d2cf !important; */
+	background-size: 100% auto;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	padding-bottom: 29%;
+	box-shadow: none !important;
+}
+.feature__top {
+	text-align: center;
+	max-width: 750px;
+	margin: 0 auto;
+}
+
+.landing__feature {
+	padding: 20px 0;
+}
+
+.feature__card {
+	margin-top: 50px;
+}
+
+.d-flex {
+	display: flex !important;
+}
+.justify-cc {
+	justify-content: center;
+}
+.justify-sb {
+	justify-content: space-between;
+}
+.justify-fe {
+	justify-content: flex-end;
+}
+.align-ic {
+	align-items: center;
+}
+.align-fe {
+	align-items: flex-end;
+}
+.flex-grow {
+	flex-grow: 1;
+}
+.flex-row {
+	flex-direction: row;
+}
+.flex-col {
+	flex-direction: column;
+}
+
+.card-head {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+}
+.card-icon {
+	font-size: 5rem !important;
+}
+.f-18 {
+	font-size: 18px !important;
+}
+
+@media only screen and (max-width: 600px) {
+	.landing__banner {
+		background-image: none !important;
+		padding-bottom: 30px !important;
+	}
+}
+
+.btn {
+	text-transform: capitalize !important;
+	padding: 10px 20px;
+}
+
+.space {
+	margin-bottom: 20px;
+}
+.divide-margin {
+	margin-bottom: 60px;
+}
+
+.banner_title {
+	font-size: 3rem;
+	font-weight: 900;
+}
+.w-100 {
+	width: "100%";
+}
+
+.ck.ck-editor {
+	max-width: 99% !important;
+}
+.ck.ck-content {
+	min-height: 70vh;
+}
+.ck.ck-toolbar {
+	border-top: 1px solid var(--ck-color-toolbar-border) !important;
+	border-bottom: 1px solid var(--ck-color-toolbar-border) !important;
+	border-right: 0 !important;
+	border-left: 0 !important;
+}
+
+.ck.ck-sticky-panel .ck-sticky-panel__content_sticky {
+	top: 0px !important;
+}
+@media (min-width: 600px) {
+	.ck.ck-sticky-panel .ck-sticky-panel__content_sticky {
+		top: 60px !important;
+	}
+}
+.ck .ck-editor__main {
+	padding-top: 16px;
+}
+.ck.ck-editor__main > .ck-editor__editable:not(.ck-focused) {
+	border-color: transparent !important;
+	/* padding: 0 30px; */
+}
+/* .ck-rounded-corners .ck.ck-editor__main > .ck-editor__editable,
+.ck.ck-editor__main > .ck-editor__editable.ck-rounded-corners {
+	padding: 0 30px;
+} */
+
+.ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+	outline: none;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.ck.ck-editor__editable_inline {
+	overflow: auto;
+	padding: 0 !important;
+	border: none !important;
+}
+
+/* #removeOutline.MuiOutlinedInput-root.Mui-focused
+	.MuiOutlinedInput-notchedOutline {
+	border-color: #3f51b5;
+	border-width: 2px;
+}
+
+#removeOutline.MuiOutlinedInput-notchedOutline {
+	border: 0;
+	border-color: rgba(0, 0, 0, 0.23);
+} */
+
+#entryForm .MuiOutlinedInput-notchedOutline {
+	border: 0 !important;
+}
+#entryTitle {
+	font-size: 1.2rem;
+	padding: 0 0 16px 0;
+}
