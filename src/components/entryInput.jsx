@@ -14,64 +14,28 @@ import {
 } from "@material-ui/core";
 import JournalSidebarEntries from "./common/journalSidebarEntries";
 import Search from "./common/search";
+import NavBar from "./common/navBar";
 
 import { getJournalById } from "../services/fakeJournalService";
+import { getEntryById } from "../services/fakeEntryService";
 
-import MenuIcon from "@material-ui/icons/Menu";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import SettingsIcon from "@material-ui/icons/Settings";
 import AddIcon from "@material-ui/icons/Add";
 import AppsIcon from "@material-ui/icons/Apps";
-import StarIcon from "@material-ui/icons/Star";
+import StarRoundedIcon from "@material-ui/icons/StarRounded";
 import CloseIcon from "@material-ui/icons/Close";
 
 import { makeStyles } from "@material-ui/core/styles";
 import grey from "@material-ui/core/colors/grey";
-import logo from "../image/logo_grey.svg";
 import CkEditor from "./common/ckEditor";
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
+	//appbar
 	root: {
 		display: "flex",
-	},
-	appBar: {
-		overflow: "hidden",
-		transition: theme.transitions.create(["margin", "width"], {
-			easing: theme.transitions.easing.sharp,
-			duration: theme.transitions.duration.leavingScreen,
-		}),
-		height: "60px",
-		position: "absolute",
-		[theme.breakpoints.up("sm")]: {
-			position: "fixed",
-		},
-	},
-	appBarShift: {
-		marginLeft: drawerWidth,
-		transition: theme.transitions.create(["margin", "width"], {
-			easing: theme.transitions.easing.easeOut,
-			duration: theme.transitions.duration.enteringScreen,
-		}),
-		//updatee
-		width: "100%",
-		[theme.breakpoints.up("sm")]: {
-			width: `calc(100% - ${drawerWidth}px)`,
-		},
-		//updatee
-	},
-	toolbar: {
-		height: "100%",
-	},
-	menuButton: {
-		marginRight: theme.spacing(0),
-		[theme.breakpoints.up("sm")]: {
-			marginRight: theme.spacing(2),
-		},
-	},
-	hide: {
-		display: "none",
 	},
 	drawer: {
 		width: drawerWidth,
@@ -108,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
 		// }),
 		// marginLeft: 0,
 		//updatee
-		[theme.breakpoints.up("sm")]: {
+		[theme.breakpoints.up("md")]: {
 			transition: theme.transitions.create("margin", {
 				easing: theme.transitions.easing.easeOut,
 				duration: theme.transitions.duration.enteringScreen,
@@ -117,22 +81,9 @@ const useStyles = makeStyles((theme) => ({
 		},
 		//updatee
 	},
-	title: {
-		color: "#1c202a",
-		flexGrow: 1,
-		fontSize: "1.2rem",
-		fontWeight: "normal",
-		textDecoration: "none",
-	},
-	navBtn: {
-		textTransform: "capitalize",
-		background: "#fff",
-		color: "#1c202a",
-		fontWeight: 900,
-		"&:hover": {
-			background: "#fff",
-		},
-	},
+
+	//sidebar
+
 	white: {
 		color: "#fafafa",
 	},
@@ -196,16 +147,22 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const AddEntry = ({ user, match }) => {
+const EntryInput = ({ user, match, history }) => {
 	const [journal, setJournal] = useState({});
+	const [currentEntry, setCurrentEntry] = useState({});
+
 	const [toggleDrawer, setToggleDrawer] = useState(false);
+	const [loading, setLoading] = useState(true);
 
 	const classes = useStyles();
 	// const theme = useTheme();
 	useEffect(() => {
-		const journalId = parseInt(match.params.id);
-		const currentJournal = getJournalById(journalId);
+		const j_id = parseInt(match.params.j_id);
+		const currentJournal = getJournalById(j_id);
 		setJournal(currentJournal);
+
+		const e_id = parseInt(match.params.e_id) || match.params.e_id;
+		setLoading(false);
 	}, []);
 
 	useEffect(() => {
@@ -223,60 +180,13 @@ const AddEntry = ({ user, match }) => {
 
 	return (
 		<div className={classes.root}>
-			<AppBar
-				color="secondary"
-				className={clsx(classes.appBar, {
-					[classes.appBarShift]: toggleDrawer,
-				})}
-			>
-				<Toolbar className={classes.toolbar}>
-					<Hidden xsDown>
-						<IconButton
-							color="inherit"
-							aria-label="toggle drawer"
-							onClick={handleDrawerToggle}
-							edge="start"
-							className={clsx(classes.menuButton, toggleDrawer)}
-						>
-							<MenuIcon />
-						</IconButton>
-					</Hidden>
-					<Hidden smUp>
-						<ClickAwayListener onClickAway={handleCloseDrawer}>
-							<IconButton
-								color="inherit"
-								aria-label="toggle drawer"
-								onClick={handleDrawerToggle}
-								edge="start"
-								className={clsx(classes.menuButton, toggleDrawer)}
-							>
-								<MenuIcon />
-							</IconButton>
-						</ClickAwayListener>
-					</Hidden>
+			<NavBar
+				user={user}
+				showDrawer
+				toggleDrawer={toggleDrawer}
+				onDrawerToggle={handleDrawerToggle}
+			/>
 
-					<Hidden smDown>
-						<Link to="/">
-							<img src={logo} height="50px" alt="Logo" />
-						</Link>
-					</Hidden>
-					<Link to="/journals" className={classes.title}>
-						Daily Diary
-					</Link>
-					{/* <Typography variant="h6" noWrap className={classes.title}>
-						Daily Diary
-					</Typography> */}
-					<Button
-						variant="contained"
-						disableElevation
-						disableRipple
-						color="primary"
-						className={classes.navBtn}
-					>
-						Go PRO
-					</Button>
-				</Toolbar>
-			</AppBar>
 			<Drawer
 				className={classes.drawer}
 				variant="persistent"
@@ -292,13 +202,12 @@ const AddEntry = ({ user, match }) => {
 					<IconButton className={classes.titleDropdown}>
 						<ExpandMoreIcon />
 					</IconButton>
-					<Hidden smUp>
+					<Hidden mdUp>
 						<IconButton
 							color="inherit"
 							aria-label="toggle drawer"
 							onClick={handleCloseDrawer}
 							edge="start"
-							className={clsx(classes.menuButton, toggleDrawer)}
 						>
 							<CloseIcon />
 						</IconButton>
@@ -332,7 +241,7 @@ const AddEntry = ({ user, match }) => {
 						disableElevation
 						className={classes.actionBtn}
 					>
-						<StarIcon className={classes.iconBtn} />
+						<StarRoundedIcon className={classes.iconBtn} />
 						View starred entries
 					</Button>
 				</div>
@@ -347,10 +256,11 @@ const AddEntry = ({ user, match }) => {
 				})}
 			>
 				<div className={classes.drawerHeader} />
-				<CkEditor />
+
+				<CkEditor user={user} />
 			</main>
 		</div>
 	);
 };
 
-export default AddEntry;
+export default EntryInput;

@@ -56,8 +56,8 @@ function App() {
 							return (
 								<Route
 									key={idx}
-									path={route.path}
 									exact
+									path={route.path}
 									component={route.component}
 								/>
 							);
@@ -65,8 +65,8 @@ function App() {
 							return (
 								<ProtectedRoute
 									key={idx}
-									path={route.path}
 									exact
+									path={route.path}
 									component={route.component}
 								/>
 							);

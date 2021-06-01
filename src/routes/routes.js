@@ -2,7 +2,7 @@
 import LandingPage from "../components/landing/landingPage";
 import NotFound from "../components/notFound";
 import Journals from "../components/journals";
-import AddEntry from "../components/addEntry";
+import EntryInput from "../components/entryInput";
 
 export const routes = [
 	{
@@ -19,8 +19,8 @@ export const routes = [
 		requireAuth: true,
 	},
 	{
-		path: "/journals/:id/new",
-		component: AddEntry,
+		path: "/journals/:j_id/:e_id",
+		component: EntryInput,
 		requireAuth: true,
 	},
 ];

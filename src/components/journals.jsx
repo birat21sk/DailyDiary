@@ -15,27 +15,20 @@ import {
 // import auth from "../services/fakeAuthService";
 
 import Search from "./common/search";
+import NavBar from "./common/navBar";
 import ShowJournal from "./showJournal";
 
 import { getAuthorJournals } from "./../services/fakeJournalService";
 // import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
-	titleNav: {
-		minHeight: "50px",
-		display: "flex",
-		background: "#f9b934",
-	},
 	themeNav: {
 		color: theme.palette.common.white,
 		minHeight: "50px",
 		display: "flex",
 		background: "#1c202a",
+		marginTop: "60px",
 		marginBottom: "24px",
-	},
-	title: {
-		color: "#1c202a",
-		textDecoration: "none",
 	},
 	navBtn: {
 		textTransform: "capitalize",
@@ -45,6 +38,13 @@ const useStyles = makeStyles((theme) => ({
 		"&:hover": {
 			background: "#fff",
 		},
+	},
+	appName: {
+		color: "#1c202a",
+		// flexGrow: 1,
+		fontSize: "1.2rem",
+		fontWeight: "normal",
+		textDecoration: "none",
 	},
 	addJournalIcon: {
 		position: "relative",
@@ -76,12 +76,10 @@ const Journals = (props) => {
 	const classes = useStyles();
 	return (
 		<React.Fragment>
-			<Toolbar className={classes.titleNav}>
-				<Container className="d-flex">
-					<Link to="/" className={classes.title}>
-						<Typography variant="h5" style={{ fontWeight: 700 }}>
-							Daily Diary
-						</Typography>
+			{/* <Toolbar className={classes.titleNav}>
+				<Container className="d-flex align-ic">
+					<Link to="/" className={classes.appName}>
+						Daily Diary
 					</Link>
 					<div className="flex-grow">
 						<Hidden smDown>
@@ -98,7 +96,8 @@ const Journals = (props) => {
 						Go PRO
 					</Button>
 				</Container>
-			</Toolbar>
+			</Toolbar> */}
+			<NavBar user={user} showSearch />
 			<Toolbar className={classes.themeNav}>
 				<Container maxWidth="md" className="d-flex align-ic">
 					<div className="flex-grow">

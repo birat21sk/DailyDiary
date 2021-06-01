@@ -305,10 +305,14 @@
 	top: 0px !important;
 }
 @media (min-width: 600px) {
+	.MuiToolbar-regular {
+		min-height: 60px !important;
+	}
 	.ck.ck-sticky-panel .ck-sticky-panel__content_sticky {
-		top: 60px !important;
+		top: 62px !important;
 	}
 }
+
 .ck .ck-editor__main {
 	padding-top: 16px;
 }
@@ -333,21 +337,10 @@
 	border: none !important;
 }
 
-/* #removeOutline.MuiOutlinedInput-root.Mui-focused
-	.MuiOutlinedInput-notchedOutline {
-	border-color: #3f51b5;
-	border-width: 2px;
-}
-
-#removeOutline.MuiOutlinedInput-notchedOutline {
-	border: 0;
-	border-color: rgba(0, 0, 0, 0.23);
-} */
-
 #entryForm .MuiOutlinedInput-notchedOutline {
 	border: 0 !important;
 }
 #entryTitle {
-	font-size: 1.2rem;
+	font-size: 2rem;
 	padding: 0 0 16px 0;
 }

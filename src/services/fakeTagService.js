@@ -4,6 +4,6 @@ export const tags = [
 	{ id: "5b21ca3eeb7f6fbccd471820", name: "Event" },
 ];
 
-export function getcategory() {
+export function getTag() {
 	return tags.filter((g) => g);
 }

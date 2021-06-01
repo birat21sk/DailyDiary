@@ -4,13 +4,13 @@ import { getJournalEntries } from "./fakeEntryService";
 const journals = [
 	{
 		id: 1,
-		title: "Journal 1",
+		title: "Life in a paper",
 		theme_id: 1,
 		author_id: 1,
 	},
 	{
 		id: 2,
-		title: "Journal 2",
+		title: "Will Power",
 		theme_id: 1,
 		author_id: 1,
 	},
