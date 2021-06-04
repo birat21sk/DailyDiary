@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "ckeditor5-build-ddiary";
 import { makeStyles, Container, TextField } from "@material-ui/core";
 
-import { getEntryById } from "../../services/fakeEntryService";
+// import { getEntryById } from "../../services/fakeEntryService";
 
 import TodayIcon from "@material-ui/icons/Today";
 import TextFormatIcon from "@material-ui/icons/TextFormat";

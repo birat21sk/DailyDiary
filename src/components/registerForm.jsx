@@ -32,15 +32,14 @@ const styles = (theme) => ({
 	},
 	form: {
 		width: "100%", // Fix IE 11 issue.
-		marginTop: theme.spacing(1),
-		marginBottom: theme.spacing(1),
+		marginTop: theme.spacing(3),
 	},
 	submit: {
 		margin: theme.spacing(3, 0, 2),
 	},
 });
 
-class LoginForm extends Form {
+class RegisterForm extends Form {
 	state = {
 		data: { username: "", password: "", remember: false },
 		errors: {},
@@ -72,24 +71,31 @@ class LoginForm extends Form {
 						<LockOutlinedIcon />
 					</Avatar>
 					<Typography component="h1" variant="h5">
-						Sign in
+						Sign up
 					</Typography>
-					<form method="POST" className={classes.form}>
-						{this.renderInput("username", "Username")}
-						{this.renderInput("password", "Password", "password")}
-						{this.renderCheckbox("remember", "Remember me")}
-						{this.renderButton("Sign in", "contained", "secondary", true)}
-					</form>
-					<Grid container>
-						<Grid item xs>
-							<Link to="#">Forgot password?</Link>
+					<form className={classes.form}>
+						<Grid container>
+							<Grid item xs={12} sm={6}>
+								{this.renderInput("first_name", "First Name")}
+							</Grid>
+							<Grid item xs={12} sm={6}>
+								{this.renderInput("last_name", "Last Name")}
+							</Grid>
 						</Grid>
+
+						{this.renderInput("email", "Email Address", "email")}
+						{this.renderInput("password1", "Password", "password")}
+						{this.renderInput("password2", "Confirm Password", "password")}
+
+						{this.renderButton("Sign up", "contained", "primary", true)}
+					</form>
+					<Grid container justify="flex-end">
 						<Grid item>
-							<Link to="/signup">{"Don't have an account? Sign Up"}</Link>
+							<Link to="/login">Already have an account? Sign in</Link>
 						</Grid>
 					</Grid>
 				</div>
-				<Box mt={8}>
+				<Box mt={5}>
 					<Copyright />
 				</Box>
 			</Container>
@@ -97,4 +103,4 @@ class LoginForm extends Form {
 	}
 }
 
-export default withStyles(styles)(LoginForm);
+export default withStyles(styles)(RegisterForm);

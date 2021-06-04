@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import {
 	Toolbar,
 	makeStyles,
 	Container,
 	Grid,
 	Button,
-	Typography,
-	fade,
-	InputBase,
-	Hidden,
 } from "@material-ui/core";
 // import logo from "../image/logo_svg.svg";
 // import auth from "../services/fakeAuthService";
 
-import Search from "./common/search";
 import NavBar from "./common/navBar";
 import ShowJournal from "./showJournal";
 
@@ -76,27 +70,6 @@ const Journals = (props) => {
 	const classes = useStyles();
 	return (
 		<React.Fragment>
-			{/* <Toolbar className={classes.titleNav}>
-				<Container className="d-flex align-ic">
-					<Link to="/" className={classes.appName}>
-						Daily Diary
-					</Link>
-					<div className="flex-grow">
-						<Hidden smDown>
-							<Search className={"d-flex justify-cc "} stretch="20ch" />
-						</Hidden>
-					</div>
-					<Button
-						variant="contained"
-						disableElevation
-						disableRipple
-						color="primary"
-						className={classes.navBtn}
-					>
-						Go PRO
-					</Button>
-				</Container>
-			</Toolbar> */}
 			<NavBar user={user} showSearch />
 			<Toolbar className={classes.themeNav}>
 				<Container maxWidth="md" className="d-flex align-ic">

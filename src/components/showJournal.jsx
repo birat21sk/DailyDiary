@@ -42,8 +42,8 @@ const useStyles = makeStyles((theme) => ({
 		left: 0,
 		right: 0,
 		background: "#dbe6f6",
-		background: "-webkit-linear-gradient(to bottom, #e8cbc0, #636fa4)",
-		background: "linear-gradient(to bottom, #e8cbc0, #636fa4)",
+		// background: "-webkit-linear-gradient(to bottom, #e8cbc0, #636fa4)",
+		// background: "linear-gradient(to bottom, #e8cbc0, #636fa4)",
 	},
 	diaryCoverBox: {
 		position: "absolute",

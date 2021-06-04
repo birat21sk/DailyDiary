@@ -1,17 +1,22 @@
+// import React, { useState, useEffect, useContext } from "react";
 import React, { useEffect } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import AOS from "aos";
-import { routes } from "./routes/routes";
+import { routes } from "./routes/routes.jsx";
 // import auth from "./services/fakeAuthService";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import ProtectedRoute from "./components/common/protectedRoute";
+
+// import UserContext from './context/userContext';
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 import "aos/dist/aos.css";
 import "./App.css";
 
 function App() {
+	// const [user, setUser] = useState({});
+
 	useEffect(() => {
 		AOS.init({
 			duration: 700,
@@ -45,6 +50,8 @@ function App() {
 			}),
 		[prefersDarkMode]
 	);
+
+	// handleUserLogIn = (uname, pswd) => {};
 
 	return (
 		<ThemeProvider theme={theme}>
