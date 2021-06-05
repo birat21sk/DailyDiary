@@ -25,6 +25,7 @@ class Form extends Component {
 		const obj = { [name]: value };
 		const schema = { [name]: this.schema[name] };
 		const { error } = Joi.validate(obj, schema);
+		console.log(error);
 		return error ? error.details[0].message : null;
 	};
 
@@ -70,6 +71,7 @@ class Form extends Component {
 				color={color}
 				fullWidth={fullWidth}
 				onClick={this.handleSubmit}
+				style={{ margin: "8px 0" }}
 			>
 				{label}
 			</Button>
@@ -77,7 +79,7 @@ class Form extends Component {
 		);
 	};
 
-	renderInput = (name, label, type = "text") => {
+	renderInput = (name, label, type = "text", required = false) => {
 		const { data, errors } = this.state;
 		return (
 			<InputField
@@ -85,6 +87,7 @@ class Form extends Component {
 				name={name}
 				value={data[name]}
 				label={label}
+				required={required}
 				onChange={this.handleChange}
 				error={errors[name]}
 			/>
@@ -101,10 +104,12 @@ class Form extends Component {
 						value={data.remember}
 						color={color}
 						checked={data.remember}
+						style={{ padding: 8 }}
 					/>
 				}
 				label={label}
 				onChange={this.handleCheckToggle}
+				style={{ color: "var(--text-dark)" }}
 			/>
 		);
 	};

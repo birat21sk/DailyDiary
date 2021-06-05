@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Joi from "joi-browser";
+
 import { Avatar, Grid, Box, Typography, Container } from "@material-ui/core";
 
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -8,11 +9,12 @@ import Form from "./common/form";
 import { withStyles } from "@material-ui/core/styles";
 import InputField from "./common/inputField";
 
-function Copyright() {
+function Copyright({ classes }) {
 	return (
 		<Typography variant="body2" color="textSecondary" align="center">
-			{"Copyright © "}
-			<Link to="https://material-ui.com/">Your Website</Link>{" "}
+			<Link to="/" className={classes.link}>
+				Daily Diary Inc.
+			</Link>{" "}
 			{new Date().getFullYear()}
 			{"."}
 		</Typography>
@@ -37,6 +39,17 @@ const styles = (theme) => ({
 	},
 	submit: {
 		margin: theme.spacing(3, 0, 2),
+	},
+	text: {
+		color: "var(--text-dark)",
+	},
+	link: {
+		textDecoration: "none",
+		color: "var(--primary-color)",
+		filter: "brightness(0.5)",
+		"&:hover": {
+			filter: "brightness(0.7)",
+		},
 	},
 });
 
@@ -71,26 +84,30 @@ class LoginForm extends Form {
 					<Avatar className={classes.avatar}>
 						<LockOutlinedIcon />
 					</Avatar>
-					<Typography component="h1" variant="h5">
+					<Typography component="h1" variant="h5" className={classes.text}>
 						Sign in
 					</Typography>
 					<form method="POST" className={classes.form}>
-						{this.renderInput("username", "Username")}
+						{this.renderInput("username", "Username", "text")}
 						{this.renderInput("password", "Password", "password")}
 						{this.renderCheckbox("remember", "Remember me")}
-						{this.renderButton("Sign in", "contained", "secondary", true)}
+						{this.renderButton("Sign in", "contained", "primary", true)}
 					</form>
 					<Grid container>
 						<Grid item xs>
-							<Link to="#">Forgot password?</Link>
+							<Link to="#" className={classes.link}>
+								Forgot password?
+							</Link>
 						</Grid>
 						<Grid item>
-							<Link to="/signup">{"Don't have an account? Sign Up"}</Link>
+							<Link to="/signup" className={classes.link}>
+								{"Don't have an account? Sign Up"}
+							</Link>
 						</Grid>
 					</Grid>
 				</div>
 				<Box mt={8}>
-					<Copyright />
+					<Copyright classes={classes} />
 				</Box>
 			</Container>
 		);

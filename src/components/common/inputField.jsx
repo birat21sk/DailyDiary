@@ -7,6 +7,7 @@ import {
 } from "@material-ui/core";
 
 const InputField = ({ name, label, error, required, ...rest }) => {
+	const isError = error ? true : false;
 	return (
 		<FormControl
 			variant="outlined"
@@ -14,16 +15,21 @@ const InputField = ({ name, label, error, required, ...rest }) => {
 			required={required}
 			style={{ margin: "8px 0" }}
 		>
-			<InputLabel htmlFor={name}>{label}</InputLabel>
+			<InputLabel htmlFor={name} error={isError}>
+				{label}
+			</InputLabel>
 			<OutlinedInput
 				id={name}
 				label={label}
 				name={name}
-				error={error ? true : false}
+				error={isError}
+				aria-describedby="validation-error-text"
 				{...rest}
 			/>
 			{error && (
-				<FormHelperText id="component-error-text">{error}</FormHelperText>
+				<FormHelperText id="validation-error-text" error={isError}>
+					{error}
+				</FormHelperText>
 			)}
 		</FormControl>
 	);
