@@ -10,6 +10,7 @@ import config from "../config.json";
 
 import { makeStyles } from "@material-ui/core/styles";
 import CkEditor from "./common/ckEditor";
+import Loading from "./common/loading";
 
 const useStyles = makeStyles((theme) => ({
 	//appbar
@@ -36,6 +37,14 @@ const useStyles = makeStyles((theme) => ({
 			marginLeft: 0,
 		},
 	},
+	drawerHeader: {
+		display: "flex",
+		alignItems: "center",
+		padding: theme.spacing(0, 1),
+		// necessary for content to be below app bar
+		...theme.mixins.toolbar,
+		justifyContent: "flex-end",
+	},
 }));
 
 const EntryInput = ({ user, match, history }) => {
@@ -50,9 +59,10 @@ const EntryInput = ({ user, match, history }) => {
 		const j_id = parseInt(match.params.j_id);
 		const currentJournal = getJournalById(j_id);
 		setJournal(currentJournal);
-		console.log(currentJournal);
-		const e_id = parseInt(match.params.e_id) || match.params.e_id;
-		setLoading(false);
+		if (journal) {
+			setLoading(false);
+			console.log(journal);
+		}
 	}, []);
 
 	useEffect(() => {
@@ -94,7 +104,7 @@ const EntryInput = ({ user, match, history }) => {
 			</div>
 		</div>
 	) : (
-		"loading..."
+		<Loading />
 	);
 };
 

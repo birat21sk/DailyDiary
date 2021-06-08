@@ -7,17 +7,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Form from "./common/form";
 import { withStyles } from "@material-ui/core/styles";
 import InputField from "./common/inputField";
-
-function Copyright() {
-	return (
-		<Typography variant="body2" color="textSecondary" align="center">
-			{"Copyright © "}
-			<Link to="https://material-ui.com/">Your Website</Link>{" "}
-			{new Date().getFullYear()}
-			{"."}
-		</Typography>
-	);
-}
+import Copyright from "./common/copyright";
 
 const styles = (theme) => ({
 	paper: {

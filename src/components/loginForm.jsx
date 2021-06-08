@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, Redirect } from "react-router-dom";
 import Joi from "joi-browser";
 
 import { Avatar, Grid, Box, Typography, Container } from "@material-ui/core";
@@ -7,19 +7,9 @@ import { Avatar, Grid, Box, Typography, Container } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Form from "./common/form";
 import { withStyles } from "@material-ui/core/styles";
-import InputField from "./common/inputField";
 
-function Copyright({ classes }) {
-	return (
-		<Typography variant="body2" color="textSecondary" align="center">
-			<Link to="/" className={classes.link}>
-				Daily Diary Inc.
-			</Link>{" "}
-			{new Date().getFullYear()}
-			{"."}
-		</Typography>
-	);
-}
+import auth from "../services/fakeAuthService";
+import Copyright from "./common/copyright";
 
 const styles = (theme) => ({
 	paper: {
@@ -66,7 +56,14 @@ class LoginForm extends Form {
 	};
 
 	doSubmit = () => {
-		console.log("Submit server");
+		const { data } = this.state;
+		console.log("Submit server", data);
+
+		auth.login(data.username, data.password);
+
+		const { state } = this.props.location;
+
+		window.location = state ? state.from.pathname : "/journals";
 	};
 
 	// handleChange = (e) => {
@@ -76,6 +73,8 @@ class LoginForm extends Form {
 	// };
 
 	render() {
+		if (auth.getCurrentUser()) return <Redirect to="/journals" />;
+
 		const { classes } = this.props;
 		const { data } = this.state;
 		return (
@@ -107,7 +106,7 @@ class LoginForm extends Form {
 					</Grid>
 				</div>
 				<Box mt={8}>
-					<Copyright classes={classes} />
+					<Copyright />
 				</Box>
 			</Container>
 		);

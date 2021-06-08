@@ -12,13 +12,21 @@ const user = {
 // 	last_name: "Doe",
 // 	is_pro: false,
 // };
+const tokenKey = "token";
 
-const getCurrentUser = () => {
+export const getCurrentUser = () => {
+	const userStr = localStorage.getItem(tokenKey);
+	const user = JSON.parse(userStr);
 	return user;
 };
 
-const auth = {
-	getCurrentUser,
+export const login = (username, password) => {
+	const userStr = JSON.stringify(user);
+	localStorage.setItem(tokenKey, userStr);
 };
 
-export default auth;
+export function logout() {
+	localStorage.removeItem(tokenKey);
+}
+
+export default { getCurrentUser, login, logout };

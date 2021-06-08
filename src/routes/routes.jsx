@@ -5,6 +5,7 @@ import Journals from "../components/journals";
 import EntryInput from "../components/entryInput";
 import LoginForm from "../components/loginForm";
 import RegisterForm from "../components/registerForm";
+import Loading from "../components/common/loading";
 
 export const routes = [
 	{

@@ -26,9 +26,6 @@ export function getAuthorJournals(user) {
 	return journals.filter((j) => j.author_id === user.id);
 }
 export function getJournalById(journal_id) {
-	// return journals.filter(
-	// 	(j) => j.id === journal_id && j.author_id === author_id
-	// );
 	const journal = journals.find((j) => j.id === journal_id);
 	const entries = getJournalEntries(journal_id);
 	const currentJournal = { ...journal, entries };
