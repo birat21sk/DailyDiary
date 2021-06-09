@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Redirect } from "react-router-dom";
 import { Button, Hidden, ClickAwayListener } from "@material-ui/core";
 import logo from "../../image/logo_svg.svg";
 
@@ -28,6 +28,11 @@ const LandingNavBar = ({ user }) => {
 
 	const handleClickAway = () => {
 		setNavToggle(false);
+	};
+	const handleCreate = () => {
+		const userStr = localStorage.getItem("token");
+		if (userStr) window.location = "/login";
+		else window.location = "/signup";
 	};
 
 	return (
@@ -62,7 +67,7 @@ const LandingNavBar = ({ user }) => {
 							</NavLink>
 						</li>
 						<li className="nav-item">
-							<NavLink to="#" className="nav-link">
+							<NavLink to="/login" className="nav-link">
 								Log in
 							</NavLink>
 						</li>
@@ -73,6 +78,7 @@ const LandingNavBar = ({ user }) => {
 								className="btn"
 								disableElevation
 								disableRipple
+								onClick={handleCreate}
 							>
 								Create Your Journal
 							</Button>

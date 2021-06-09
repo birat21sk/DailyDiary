@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {
 	Box,
 	Button,
@@ -27,6 +27,9 @@ const useStyles = makeStyles({
 		fontFamily: "Lato",
 		fontWeight: 600,
 		fontSize: "1em",
+	},
+	link: {
+		textDecoration: "none",
 	},
 	banner: {
 		display: "flex",
@@ -76,14 +79,17 @@ const LandingBody = () => {
 							You're private, 100% customizable online journal.
 						</Box>
 						<br />
-						<Button
-							variant="contained"
-							color="primary"
-							className="btn"
-							size="large"
-						>
-							Start Your Free Journal Now!
-						</Button>
+						<Link to="/signup" className={classes.link}>
+							<Button
+								variant="contained"
+								color="primary"
+								className="btn"
+								size="large"
+								href="/signup"
+							>
+								Start Your Free Journal Now!
+							</Button>
+						</Link>
 					</Grid>
 				</Container>
 			</Box>
@@ -103,15 +109,16 @@ const LandingBody = () => {
 							Daily Diary gives you all the tools you need to focus on the ideas
 							you want to preserve, rather than the process of writing itself.
 						</p>
-
-						<Button
-							variant="contained"
-							color="primary"
-							className="btn"
-							size="large"
-						>
-							Get Started
-						</Button>
+						<Link to="/signup" className={classes.link}>
+							<Button
+								variant="contained"
+								color="primary"
+								className="btn"
+								size="large"
+							>
+								Get Started
+							</Button>
+						</Link>
 					</Box>
 				</Grid>
 			</Container>
@@ -126,14 +133,16 @@ const LandingBody = () => {
 							password protection and military strength encryption so you can
 							rest easy knowing that your entries are secure in the Penzu Vault.
 						</Typography>
-						<Button
-							variant="contained"
-							color="primary"
-							size="large"
-							className="btn"
-						>
-							Get Started
-						</Button>
+						<Link to="/signup" className={classes.link}>
+							<Button
+								variant="contained"
+								color="primary"
+								size="large"
+								className="btn"
+							>
+								Get Started
+							</Button>
+						</Link>
 					</Grid>
 					<Grid item sm={12} md={4}>
 						Image here
@@ -155,14 +164,16 @@ const LandingBody = () => {
 							Take your journals wherever you go with the Penzu mobile apps for
 							iPhone, iPad, and Android phones and tablets.
 						</Typography>
-						<Button
-							variant="contained"
-							color="primary"
-							size="large"
-							className="btn"
-						>
-							Get Started
-						</Button>
+						<Link to="/signup" className={classes.link}>
+							<Button
+								variant="contained"
+								color="primary"
+								size="large"
+								className="btn"
+							>
+								Get Started
+							</Button>
+						</Link>
 					</Grid>
 				</Grid>
 				<FeatureCard />

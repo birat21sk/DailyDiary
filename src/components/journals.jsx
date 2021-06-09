@@ -13,6 +13,8 @@ import NavBar from "./common/navBar";
 import ShowJournal from "./showJournal";
 
 import { getAuthorJournals } from "./../services/fakeJournalService";
+import Loading from "./common/loading";
+
 // import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
@@ -61,14 +63,16 @@ const Journals = (props) => {
 	const { user: currentUser } = props;
 	const [user] = useState(currentUser);
 	const [userJournals, setUserJournals] = useState([]);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const journalData = getAuthorJournals(user);
 		setUserJournals(journalData);
+		setLoading(false);
 	}, [user]);
 
 	const classes = useStyles();
-	return (
+	return !loading ? (
 		<React.Fragment>
 			<NavBar user={user} showSearch />
 			<Toolbar className={classes.themeNav}>
@@ -101,6 +105,8 @@ const Journals = (props) => {
 				</Grid>
 			</Container>
 		</React.Fragment>
+	) : (
+		<Loading />
 	);
 };
 

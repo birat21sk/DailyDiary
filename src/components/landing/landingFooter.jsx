@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button, makeStyles, Paper, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles({
@@ -27,6 +28,9 @@ const useStyles = makeStyles({
 		background: "#f9b943",
 		color: "#333",
 	},
+	link: {
+		textDecoration: "none",
+	},
 });
 
 const LandingFooter = () => {
@@ -38,14 +42,16 @@ const LandingFooter = () => {
 				<Typography variant="h4" className={classes.margin}>
 					Ready to start writing? Sign up now!
 				</Typography>
-				<Button
-					variant="outlined"
-					color="secondary"
-					className={classes.btn}
-					size="large"
-				>
-					Get Started
-				</Button>
+				<Link to="/signup" className={classes.link}>
+					<Button
+						variant="outlined"
+						color="secondary"
+						className={classes.btn}
+						size="large"
+					>
+						Get Started
+					</Button>
+				</Link>
 			</Paper>
 			<Paper className={classes.copy}>&copy; Daily Diary Inc. 2021</Paper>
 		</React.Fragment>
